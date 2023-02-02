@@ -1,0 +1,90 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 CREATE TABLE readers (\
+   readers_id  int(6),\
+   first name VARCHAR(30),\
+   middle name VARCHAR(30),\
+   last name VARCHAR(30),\
+    City varchar(10),\
+    mobile no int(10),\
+    Occupation VARCHAR(10),\
+   dob date,\
+   primary key (readers_id)\
+);\
+INSERT INTO readers VALUES (1, 'Animelli', 'Akshay', 'Kumar', 'ullibhadra', '8309951204', 'mechanical',2001);\
+INSERT INTO readers VALUES (2, 'Mande','Angelina ', 'nill', 'vijayawada', '6281666584', 'computers', 2002);\
+INSERT INTO readers VALUES (3, 'Ramavath', 'Sridhar', 'nayak', 'hyderabad', '6302362849', 'cse', 2000);\
+insert into readers values (4, 'Pambali', 'Jithu', 'kuamr', 'hyderabad', '9390012344', 'electrical', 2001);\
+insert into readers values (5, 'nadendla', 'ahammed', 'hussain', 'kadapa', '8688649101', 'bio', 2001);\
+insert into readers values (6, 'Chirukuri', 'sujan', 'prabodh', 'kadapa', '8639063131', 'Electrical', 2001);\
+\
+\
+\
+create table book (\
+  book_id int(6),\
+  name varchar(30),\
+  domain varchar(30),\
+  pages int(4),\
+  primary key (book_id)\
+  );\
+ INSERT INTO book values (001, 'condution and radiation', 'PE ', '900');\
+ INSERT INTO book values (002, 'precision and micro', 'PE', '6780');\
+ INSERT INTO book values (003, 'gandhian thoughts', 'OE ', '25');\
+ INSERT INTO book values (004, 'smart manufacturing ', 'PC ', '1');create table book (\
+  book_id int(6),\
+  name varchar(30),\
+  domain varchar(30),\
+  pages int(4),\
+  primary key (book_id)\
+  );\
+ INSERT INTO book values (001, 'condution and radiation', 'PE ', '900');\
+ INSERT INTO book values (002, 'precision and micro', 'PE', '6780');\
+ INSERT INTO book values (003, 'gandhian thoughts', 'OE ', '25');\
+ INSERT INTO book values (004, 'smart manufacturing ', 'PC ', '1');\
+ \
+ \
+\
+create table active\
+ (\
+   account_id int(6),\
+   readers_id int(6),\
+   book_id int(6),\
+   type varchar(30),\
+   status varchar(30),\
+   primary key (account_id),\
+   foreign key (readers_id) references readers (readers_id),\
+   foreign key (book_id) references book (book_id)\
+   );\
+INSERT INTO active values ('A001', '1', '001', 'primium','active');\
+INSERT INTO active values ('A002', '2', '002', 'Odinary','unactive');\
+INSERT INTO active values ('A003', '3', '003', 'odinary','active');\
+INSERT INTO active values ('A004', '4', '004', 'primium','active');\
+\
+\
+\
+create table book_issued \
+(\
+   issue_number int(6),\
+   account_id int(6),\
+   book_id int(6),\
+   name varchar(30),\
+  number of book issued int (7),\
+  primary key (issue_number),\
+  foreign key (account_id) references active (account_id)\
+ \
+ );\
+INSERT INTO book_issued values ('I001', 'A001', '001', 'condution and radiation','2');\
+INSERT INTO book_issued values ('I002', 'A002', '002', 'smart manufacturing','5');\
+INSERT INTO book_issued values ('I003', 'A003', '003', 'smart manufacturing','3');\
+INSERT INTO book_issued values ('I004', 'A004', '004', 'precision and micro','1');\
+\
+select * from readers;\
+select * from book;\
+select * from active;\
+select * from book_issued;\
+ }
